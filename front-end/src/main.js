@@ -11,8 +11,10 @@ Vue.config.productionTip = false
 // Create global data here
 let data = {
   user: {
-    lhsLang: "eng",
-    rhsLang: "spa",
+    lhsLang: "",
+    rhsLang: "",
+    lhsChapter: {},
+    rhsChapter: {}
   },
   languages: [
     {
@@ -50,6 +52,83 @@ let data = {
     {
       short: "zhs",
       long: "简体中文"
+    },
+  ],
+  books: [
+    {
+      short: "1-ne",
+      long: "1 Nephi",
+      num_ch: 22,
+    },
+    {
+      short: "2-ne",
+      long: "2 Nephi",
+      num_ch: 33,
+    },
+    {
+      short: "jacob",
+      long: "Jacob",
+      num_ch: 7,
+    },
+    {
+      short: "enos",
+      long: "Enos",
+      num_ch: 1,
+    },
+    {
+      short: "jarom",
+      long: "Jarom",
+      num_ch: 1,
+    },
+    {
+      short: "omni",
+      long: "Omni",
+      num_ch: 1,
+    },
+    {
+      short: "w-of-m",
+      long: "Words of Mormon",
+      num_ch: 1,
+    },
+    {
+      short: "mosiah",
+      long: "Mosiah",
+      num_ch: 29,
+    },
+    {
+      short: "alma",
+      long: "Alma",
+      num_ch: 63,
+    },
+    {
+      short: "hel",
+      long: "Helaman",
+      num_ch: 16,
+    },
+    {
+      short: "3-ne",
+      long: "3 Nephi",
+      num_ch: 30,
+    },
+    {
+      short: "4-ne",
+      long: "4 Nephi",
+      num_ch: 1,
+    },
+    {
+      short: "morm",
+      long: "Mormon",
+      num_ch: 9,
+    },
+    {
+      short: "ether",
+      long: "Ether",
+      num_ch: 15,
+    },
+    {
+      short: "moro",
+      long: "Moroni",
+      num_ch: 10,
     },
   ]
 }

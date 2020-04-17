@@ -50,13 +50,6 @@ app.get('/api/chapters', async (req, res) => {
 
 app.get('/api/chapter/:lang/:book/:ch_num', async (req, res) => {
   try {
-    console.log({
-      meta: {
-        lang: req.params.lang,
-        book: req.params.book,
-        ch_num: req.params.ch_num
-      }
-    });
     let chapter = await Chapter.find({
       meta: {
         lang: req.params.lang,
@@ -65,7 +58,7 @@ app.get('/api/chapter/:lang/:book/:ch_num', async (req, res) => {
       }
     });
     res.send(chapter);
-  } catch(error) {
+  } catch (error) {
     console.log(error);
     res.sendStatus(500);
   }

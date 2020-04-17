@@ -1,18 +1,27 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <LangPicker />
+    <Read />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import LangPicker from '@/components/LangPicker.vue';
+import Read from '@/views/Read.vue';
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
-  }
+    Read,
+    LangPicker
+  },
 }
 </script>
+
+<style scoped>
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+</style>
