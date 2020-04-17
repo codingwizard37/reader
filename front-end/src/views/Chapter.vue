@@ -1,10 +1,10 @@
 <template>
 <div class="Chapter">
   <LangPicker ref="picker"/>
-  <div class="verses" v-if="lhsChapter != undefined && rhsChapter != undefined">
+  <div class="verses text-justify" v-if="lhsChapter != undefined && rhsChapter != undefined">
     <Header />
     <b-container>
-      <b-row v-for="(verse, index) in lhsChapter.verses" v-bind:key="index" class="verse">
+      <b-row v-for="(verse, index) in lhsChapter.verses" v-bind:key="index" class="verse ">
         <b-col>{{ lhsChapter.verses[index] }}</b-col>
         <b-col>{{ rhsChapter.verses[index] }}</b-col>
       </b-row>
