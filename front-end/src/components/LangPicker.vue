@@ -1,15 +1,21 @@
 <template lang="html">
   <div class="lang-picker">
-    <b-dropdown id="native-dropdown" v-bind:text="lhsLangText" class="m-2">
-      <b-dropdown-item v-for="lang in languageList" v-bind:key="lang.id" v-on:click="updateLhsLangText(lang, bookParam, chapterParam)">
-        {{ lang.long }}
-      </b-dropdown-item>
-    </b-dropdown>
-    <b-dropdown id="foreign-dropdown" v-bind:text="rhsLangText" class="m-2">
-      <b-dropdown-item v-for="lang in languageList" v-bind:key="lang.id" v-on:click="updateRhsLangText(lang, bookParam, chapterParam)">
-        {{ lang.long }}
-      </b-dropdown-item>
-    </b-dropdown>
+    <b-row class="m-2">
+      <b-col class="justify-content-center">
+        <b-dropdown id="native-dropdown" v-bind:text="lhsLangText">
+          <b-dropdown-item v-for="lang in languageList" v-bind:key="lang.id" v-on:click="updateLhsLangText(lang, bookParam, chapterParam)">
+            {{ lang.long }}
+          </b-dropdown-item>
+        </b-dropdown>
+      </b-col>
+      <b-col class="justify-content-center">
+        <b-dropdown id="foreign-dropdown" v-bind:text="rhsLangText" class="mx-auto">
+          <b-dropdown-item v-for="lang in languageList" v-bind:key="lang.id" v-on:click="updateRhsLangText(lang, bookParam, chapterParam)">
+            {{ lang.long }}
+          </b-dropdown-item>
+        </b-dropdown>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
@@ -24,11 +30,11 @@ export default {
     }
   },
   watched: {
-    bookParam: async function (val) {
+    bookParam: async function(val) {
       console.log(val);
       await this.updateBothLangs(val, this.chapterParam);
     },
-    chapterParam: async function (val) {
+    chapterParam: async function(val) {
       await this.updateBothLangs(this.bookParam, val);
     }
   },

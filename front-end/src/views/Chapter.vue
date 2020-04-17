@@ -2,14 +2,9 @@
 <div class="Chapter">
   <LangPicker ref="picker"/>
   <div class="verses" v-if="lhsChapter != undefined && rhsChapter != undefined">
+    <Header />
     <b-container>
-      <b-row v-for="(value, key) in lhsChapter.header" v-bind:key="key">
-        <b-col>{{ value }}</b-col>
-        <b-col>{{ rhsChapter.header[key] }}</b-col>
-      </b-row>
-    </b-container>
-    <b-container>
-      <b-row v-for="(verse, index) in lhsChapter.verses" v-bind:key="index">
+      <b-row v-for="(verse, index) in lhsChapter.verses" v-bind:key="index" class="verse">
         <b-col>{{ lhsChapter.verses[index] }}</b-col>
         <b-col>{{ rhsChapter.verses[index] }}</b-col>
       </b-row>
@@ -20,6 +15,7 @@
 
 <script>
 import LangPicker from '@/components/LangPicker.vue'
+import Header from '@/components/Header.vue'
 
 export default {
   name: 'Chapter',
@@ -32,7 +28,14 @@ export default {
     }
   },
   components: {
-    LangPicker
+    LangPicker,
+    Header
   },
 }
 </script>
+
+<style scoped>
+  .verse {
+    border-bottom: 1px solid grey;
+  }
+</style>
