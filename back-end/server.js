@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({
 const mongoose = require('mongoose');
 
 // connect to the database
-mongoose.connect('mongodb://localhost:27017/reader', {
+mongoose.connect('mongodb://jake:nobodyworshipdullexpression@157.245.137.233:27017/reader', {
   useNewUrlParser: true
 });
 
@@ -66,4 +66,4 @@ app.get('/api/chapter/:lang/:book/:ch_num', async (req, res) => {
 
 
 
-app.listen(3000, () => console.log('Server listening on port 3000!'));
+app.listen(3001, () => console.log('Server listening on port 3001!'));
