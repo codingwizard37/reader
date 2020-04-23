@@ -1,6 +1,6 @@
 <template>
   <b-navbar toggleable="lg" type="dark" variant="info">
-    <b-navbar-brand :to="{name: 'Home'}">Book of Mormon Parallel Reader</b-navbar-brand>
+    <b-navbar-brand :to="{name: 'Home'}">Book of Mormon: Parallel Reader</b-navbar-brand>
   </b-navbar>
 </template>
 
