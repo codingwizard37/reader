@@ -14,6 +14,14 @@ export default {
   name: 'app',
   components: {
     NavBar
+  },
+  watch: {
+    $route: {
+      immediate: true,
+      handler(to) {
+        document.title = to.meta.title || 'Some Default Title';
+      }
+    },
   }
 }
 </script>
@@ -30,6 +38,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* text-align: center; */
-  color: #2c3e50;
+  /* color: #2c3e50; */
 }
 </style>

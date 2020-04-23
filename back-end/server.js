@@ -16,6 +16,12 @@ mongoose.connect('mongodb://jake:nobodyworshipdullexpression@157.245.137.233:270
 
 // Create a scheme for Book of Mormon Chapters
 const chapterSchema = new mongoose.Schema({
+  lang_short: String,
+  lang_long: String
+});
+
+// Create a scheme for Book of Mormon Chapters
+const langSchema = new mongoose.Schema({
   header: {
     title: String,
     subtitle: String,
@@ -36,6 +42,7 @@ const chapterSchema = new mongoose.Schema({
 
 // Create a model for items in the museum.
 const Chapter = mongoose.model('Chapter', chapterSchema);
+const Language = mongoose.model('Language', langSchema);
 
 // Get a list of all of the chapters in the database.
 app.get('/api/chapters', async (req, res) => {
@@ -63,6 +70,16 @@ app.get('/api/chapter/:lang/:book/:ch_num', async (req, res) => {
     res.sendStatus(500);
   }
 });
+
+app.get("/api/lang/", async (req, res) => {
+  try {
+    let langs = await Language.find();
+    res.send(langs);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+})
 
 
 

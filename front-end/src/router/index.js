@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import About from '../views/About.vue'
+import Read from '../views/Read.vue'
+import Book from '../views/Book.vue'
+import Chapter from '../views/Chapter.vue'
 
 Vue.use(VueRouter)
 
@@ -16,22 +20,22 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import( /* webpackChunkName: "about" */ '../views/About.vue')
+    component: About
   },
   {
     path: '/read/',
     name: 'Read',
-    component: () => import( /* webpackChunkName: "read" */ '../views/Read.vue')
+    component: Read
   },
   {
     path: '/read/:book',
     name: 'Book',
-    component: () => import( /* webpackChunkName: "book" */ '../views/Book.vue')
+    component: Book
   },
   {
     path: '/read/:book/:chapter',
     name: 'Chapter',
-    component: () => import(/* webpackChunkName: "chapter" */ '../views/Chapter.vue')
+    component: Chapter
   }
 ]
 

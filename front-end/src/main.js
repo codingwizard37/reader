@@ -5,55 +5,20 @@ import router from './router'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-vue/dist/bootstrap-vue.css"
 
+import axios from 'axios'
+
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 
 // Create global data here
 let data = {
   user: {
-    lhsLang: "",
-    rhsLang: "",
-    lhsChapter: {},
-    rhsChapter: {}
+    lhsLang: null,
+    rhsLang: null,
+    lhsChapter: null,
+    rhsChapter: null
   },
-  languages: [
-    {
-      short: "deu",
-      long: "Deutsch"
-    },
-    {
-      short: "eng",
-      long: "English"
-    },
-    {
-      short: "spa",
-      long: "Español"
-    },
-    {
-      short: "fra",
-      long: "Français"
-    },
-    {
-      short: "mlg",
-      long: "Malagasy"
-    },
-    {
-      short: "fin",
-      long: "Suomi"
-    },
-    {
-      short: "swe",
-      long: "Svenska"
-    },
-    {
-      short: "rus",
-      long: "Русский"
-    },
-    {
-      short: "zhs",
-      long: "简体中文"
-    },
-  ],
+  languages: [],
   books: [
     {
       short: "1-ne",
@@ -136,5 +101,53 @@ let data = {
 new Vue({
   router,
   data,
+  methods: {
+    async getAllLanguages() {
+      try {
+        let response = await axios.get("/api/lang");
+        return response.data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async updateBothLangs() {
+      if (this.user.lhsLang != null && this.user.rhsLang != null) {
+        this.setLhsLang(this.user.lhsLang);
+        this.setRhsLang(this.user.rhsLang);
+      }
+    },
+    async setLhsLang(newLangData) {
+      console.log("setLhsLang");
+      this.user.lhsLang = newLangData;
+      if (this.$route.params.book != undefined && this.$route.params.chapter != undefined) {
+        this.user.lhsChapter = await this.getChapterData(
+          this.user.lhsLang.lang_short,
+          this.$route.params.book,
+          this.$route.params.chapter)
+      }
+    },
+    async setRhsLang(newLangData) {
+      console.log("setRhsLang");
+      this.user.rhsLang = newLangData;
+      if (this.$route.params.book != undefined && this.$route.params.chapter != undefined) {
+        this.user.rhsChapter = await this.getChapterData(
+          this.user.rhsLang.lang_short,
+          this.$route.params.book,
+          this.$route.params.chapter)
+      }
+    },
+    async getChapterData(lang, book, chapter) {
+      try {
+        let response = await axios.get("/api/chapter/" + lang + "/" + book + "/" + chapter + "/");
+        console.log(response.data[0]);
+        return response.data[0];
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+  async created() {
+    this.languages = await this.getAllLanguages();
+  },
   render: h => h(App)
 }).$mount('#app')
