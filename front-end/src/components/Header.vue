@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <div class="header">
     <b-container>
       <b-row class="text-center font-weight-bold heading" v-if="lhsChapter.header.title != undefined">

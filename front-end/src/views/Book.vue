@@ -1,9 +1,8 @@
 <template>
 <div class="book">
-
-  <p v-for="n in getNumChapters()" v-bind:key="n">
-    <router-link class="m-4" :to="{ name: 'Chapter', params: {chapter: n} }">{{ n }}</router-link>
-  </p>
+  <div class="ch-list p-4">
+    <b-button class="ch-button" v-for="n in getNumChapters()" v-bind:key="n" :to="{ name: 'Chapter', params: {chapter: n} }"> {{ n }}</b-button>
+  </div>
 </div>
 </template>
 
@@ -19,3 +18,16 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.ch-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ch-button {
+  width: 3rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+</style>

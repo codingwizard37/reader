@@ -1,10 +1,8 @@
 <template>
 <div class="read">
-  <div class="books mx-4">
-    <p v-for="(value, index) in this.$root.$data.books" v-bind:key="index">
-      <router-link :to="{name: 'Book', params: {book: value.short}}">{{ value.long }}</router-link>
-    </p>
-  </div>
+    <b-list-group v-for="(value, index) in this.$root.$data.books" v-bind:key="index" class="list-group-flush">
+      <b-list-group-item :to="{name: 'Book', params: {book: value.short}}">{{ value.long }}</b-list-group-item>
+    </b-list-group>
 </div>
 </template>
 
@@ -13,3 +11,7 @@ export default {
   name: 'Read',
 }
 </script>
+
+<style scoped>
+
+</style>
