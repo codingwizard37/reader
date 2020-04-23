@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="lg" type="dark" variant="info">
+  <b-navbar class="navbar" toggleable="lg" type="dark" variant="info">
     <b-navbar-brand :to="{name: 'Home'}">Book of Mormon: Parallel Reader</b-navbar-brand>
   </b-navbar>
 </template>
@@ -12,4 +12,5 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
 </style>
