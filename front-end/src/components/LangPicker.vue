@@ -1,16 +1,24 @@
 <template>
 <div class="lang-picker">
   <div class="dropdown-container">
-    <b-dropdown id="native-dropdown" v-bind:text="lhsLangText" class="mx-auto">
-      <b-dropdown-item v-for="lang in languageList" v-bind:key="lang._id" v-on:click="updateLhsLangText(lang)">
+    <b-dropdown class="lang-dropdown" variant="outline-secondary" v-bind:text="lhsLangText">
+      <b-dropdown-item
+        v-for="lang in languageList"
+        v-bind:key="lang._id"
+        v-bind:active="isCurrLHSLang(lang)"
+        v-on:click="updateLhsLangText(lang)">
         {{ lang.lang_long }}
       </b-dropdown-item>
     </b-dropdown>
   </div>
   <div class="dropdown-container">
-    <b-dropdown id="foreign-dropdown" v-bind:text="rhsLangText" class="mx-auto">
-      <b-dropdown-item v-for="lang in languageList" v-bind:key="lang._id" v-on:click="updateRhsLangText(lang)">
-        {{ lang.lang_long }}
+    <b-dropdown class="lang-dropdown" variant="outline-secondary" v-bind:text="rhsLangText" right>
+      <b-dropdown-item
+        v-for="lang in languageList"
+        v-bind:key="lang._id"
+        v-bind:active="isCurrRHSLang(lang)"
+        v-on:click="updateRhsLangText(lang)">
+          {{ lang.lang_long }}
       </b-dropdown-item>
     </b-dropdown>
   </div>
@@ -46,6 +54,12 @@ export default {
       this.rhsLangText = lang.lang_long;
       this.$root.setRhsLang(lang);
     },
+    isCurrRHSLang(lang) {
+      return this.rhsLang !== null && lang.lang_short === this.rhsLang.lang_short;
+    },
+    isCurrLHSLang(lang) {
+      return this.lhsLang !== null && lang.lang_short === this.lhsLang.lang_short;
+    }
   },
   created() {
     if (this.$root.$data.user.lhsLang != null) {
@@ -58,11 +72,12 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style scoped>
 .lang-picker {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   display: flex;
+  background-color: #f0e9db;
 }
 .dropdown-container {
   width: 50%;

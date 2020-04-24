@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <b-container>
-      <b-row class="text-center font-weight-bold heading" v-if="lhsChapter.header.title != undefined">
+      <b-row class=" chapter-heading text-center font-weight-bold heading" v-if="lhsChapter.header.title != undefined">
         <b-col>{{ lhsChapter.header.title }}</b-col>
         <b-col>{{ rhsChapter.header.title }}</b-col>
       </b-row>
@@ -13,7 +13,7 @@
         <b-col>{{ lhsChapter.header.intro }}</b-col>
         <b-col>{{ rhsChapter.header.intro }}</b-col>
       </b-row>
-      <b-row class="heading text-center font-weight-bold " v-if="lhsChapter.header.title_number != undefined">
+      <b-row class="chapter-heading heading text-center font-weight-bold" v-if="lhsChapter.header.title_number != undefined">
         <b-col>{{ lhsChapter.header.title_number }}</b-col>
         <b-col>{{ rhsChapter.header.title_number }}</b-col>
       </b-row>
@@ -43,8 +43,18 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style scoped>
+* {
+  padding: 0;
+}
+.chapter-heading {
+  font-size: 1.2rem;
+}
+
 .heading {
   border-bottom: 1px solid grey;
+  font-family: 'Noto Serif', serif;
+  padding-top: 0.25rem;
+  padding-bottom: 0.5rem;
 }
 </style>

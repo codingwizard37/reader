@@ -27,6 +27,8 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -34,10 +36,9 @@ export default {
 }
 
 #app {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* color: #2c3e50; */
   padding-bottom: 1.5rem;
 }
 </style>

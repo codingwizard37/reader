@@ -1,7 +1,14 @@
 <template>
 <div class="book">
   <div class="ch-list p-4">
-    <b-button class="ch-button" v-for="n in getNumChapters()" v-bind:key="n" :to="{ name: 'Chapter', params: {chapter: n} }"> {{ n }}</b-button>
+    <b-button
+        class="ch-button"
+        v-for="n in getNumChapters()"
+        v-bind:key="n"
+        variant="outline-secondary"
+        :to="{ name: 'Chapter', params: {chapter: n} }">
+      {{ n }}
+    </b-button>
   </div>
 </div>
 </template>
