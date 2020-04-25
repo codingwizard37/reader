@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
-import Read from '../views/Read.vue'
 import Book from '../views/Book.vue'
 import Chapter from '../views/Chapter.vue'
 
@@ -27,11 +26,6 @@ const routes = [
     meta: {
       title: "Parallel | About"
     }
-  },
-  {
-    path: '/read/',
-    name: 'Read',
-    component: Read,
   },
   {
     path: '/read/:book',

@@ -1,5 +1,5 @@
 <template>
-<div class="lang-picker">
+<div class="lang-picker bg-light">
   <div class="dropdown-container">
     <b-dropdown class="lang-dropdown" variant="outline-secondary" v-bind:text="lhsLangText">
       <b-dropdown-item
@@ -77,7 +77,6 @@ export default {
   padding-top: 1rem;
   padding-bottom: 1rem;
   display: flex;
-  background-color: #f0e9db;
 }
 .dropdown-container {
   width: 50%;

@@ -8,21 +8,17 @@
 
   <b-collapse id="nav-collapse" is-nav>
     <b-navbar-nav>
-      <b-nav-item :to="{name: 'Home'}">Home</b-nav-item>
-      <!-- <b-nav-item href="#">About</b-nav-item>
-      <b-nav-item href="#">Languages</b-nav-item> -->
-    </b-navbar-nav>
-
-    <!-- Right aligned nav items -->
-    <b-navbar-nav class="ml-auto">
-      <b-nav-item-dropdown text="Book of Mormon" right>
-        <b-dropdown-item
-          v-for="(value, index) in this.$root.$data.books"
-          v-bind:key="index"
-          :to="{name: 'Book', params: {book: value.short}}">
-            {{ value.long }}
+      <b-nav-item v-bind:active="$route.name === 'Home'" :to="{name: 'Home'}">
+        Home
+      </b-nav-item>
+      <b-nav-item-dropdown text="Book of Mormon" class="text-white" v-bind:active="$route.name === 'Book' || $route.name === 'Chapter'">
+        <b-dropdown-item v-for="(value, index) in this.$root.$data.books" v-bind:key="index" v-bind:active="$route.params.book != undefined && $route.params.book == value.short" :to="{name: 'Book', params: {book: value.short}}">
+          {{ value.long }}
         </b-dropdown-item>
       </b-nav-item-dropdown>
+      <b-nav-item v-bind:active="$route.name === 'About'" :to="{name: 'About'}">
+        About
+      </b-nav-item>
     </b-navbar-nav>
   </b-collapse>
 </b-navbar>
@@ -31,7 +27,6 @@
 <script>
 export default {
   name: "NavBar",
-
 }
 </script>
 
