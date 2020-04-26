@@ -18,7 +18,6 @@ import Header from '@/components/Header.vue'
 export default {
   name: 'Chapter',
   created() {
-    console.log(this.$router.currentRoute);
     this.$root.updateBothLangs();
   },
   computed: {

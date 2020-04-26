@@ -4,6 +4,7 @@ import App from './App.vue'
 import router from './router'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons'
 // Do the commented part later for About page
 // import { faFontAwesome } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -11,6 +12,7 @@ import './custom.scss'
 import axios from 'axios'
 
 library.add(faChevronRight)
+library.add(faExchangeAlt)
 // library.add(faFontAwesome)
 
 Vue.use(BootstrapVue)
@@ -125,7 +127,6 @@ new Vue({
       }
     },
     async setLhsLang(newLangData) {
-      console.log("setLhsLang");
       this.user.lhsLang = newLangData;
       if (this.$route.params.book != undefined && this.$route.params.chapter != undefined) {
         this.user.lhsChapter = await this.getChapterData(
@@ -135,7 +136,6 @@ new Vue({
       }
     },
     async setRhsLang(newLangData) {
-      console.log("setRhsLang");
       this.user.rhsLang = newLangData;
       if (this.$route.params.book != undefined && this.$route.params.chapter != undefined) {
         this.user.rhsChapter = await this.getChapterData(
@@ -147,7 +147,6 @@ new Vue({
     async getChapterData(lang, book, chapter) {
       try {
         let response = await axios.get("/api/chapter/" + lang + "/" + book + "/" + chapter + "/");
-        console.log(response.data[0]);
         return response.data[0];
       } catch (error) {
         console.log(error);
