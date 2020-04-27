@@ -3,20 +3,10 @@
   <LangPicker />
   <div v-if="lhsChapter != null && rhsChapter != null">
     <div class="nav-buttons mb-2 px-1 bg-light">
-      <b-button
-          variant="secondary-outline"
-          v-if="!(this.lhsChapter.meta.book == '1-ne' && this.lhsChapter.meta.ch_num == 1)"
-          @click="loadPrevChapter()"
-          :to="getPrevChapterLink()">
+      <b-button variant="secondary-outline" v-if="!(this.lhsChapter.meta.book == '1-ne' && this.lhsChapter.meta.ch_num == 1)" @click="loadPrevChapter()" :to="getPrevChapterLink()">
         <font-awesome-icon :icon="['fas', 'chevron-left']" />
-        {{ getPrevChapterString() }}
       </b-button>
-      <b-button
-          variant="secondary-outline"
-          v-if="!(this.lhsChapter.meta.book == 'moro' && this.lhsChapter.meta.ch_num == 10)"
-          @click="loadNextChapter()"
-          :to="getNextChapterLink()">
-        {{ getNextChapterString() }}
+      <b-button variant="secondary-outline" v-if="!(this.lhsChapter.meta.book == 'moro' && this.lhsChapter.meta.ch_num == 10)" @click="loadNextChapter()" :to="getNextChapterLink()">
         <font-awesome-icon :icon="['fas', 'chevron-right']" />
       </b-button>
     </div>
@@ -27,21 +17,12 @@
         <b-col>{{ rhsChapter.verses[index] }}</b-col>
       </b-row>
     </b-container>
-    <div class="nav-buttons my-2">
-      <b-button
-          class="mr-3"
-          variant="secondary"
-          v-if="!(this.lhsChapter.meta.book == '1-ne' && this.lhsChapter.meta.ch_num == 1)"
-          @click="loadPrevChapter()"
-          :to="getPrevChapterLink()">
+    <div class="nav-buttons px-1">
+      <b-button variant="secondary-outline" v-if="!(this.lhsChapter.meta.book == '1-ne' && this.lhsChapter.meta.ch_num == 1)" @click="loadPrevChapter()" :to="getPrevChapterLink()">
         <font-awesome-icon :icon="['fas', 'chevron-left']" />
         {{ getPrevChapterString() }}
       </b-button>
-      <b-button
-          variant="secondary"
-          v-if="!(this.lhsChapter.meta.book == 'moro' && this.lhsChapter.meta.ch_num == 10)"
-          @click="loadNextChapter()"
-          :to="getNextChapterLink()">
+      <b-button variant="secondary-outline" v-if="!(this.lhsChapter.meta.book == 'moro' && this.lhsChapter.meta.ch_num == 10)" @click="loadNextChapter()" :to="getNextChapterLink()">
         {{ getNextChapterString() }}
         <font-awesome-icon :icon="['fas', 'chevron-right']" />
       </b-button>
@@ -74,7 +55,7 @@ export default {
   methods: {
     loadPrevChapter() {
       let meta = this.getPrevChapter(this.lhsChapter.meta.book, this.lhsChapter.meta.ch_num);
-      scroll(0,0);
+      scroll(0, 0);
       this.$root.updateBothChapters(meta);
 
     },
@@ -124,7 +105,7 @@ export default {
     loadNextChapter() {
       let meta = this.getNextChapter(this.lhsChapter.meta.book, this.lhsChapter.meta.ch_num);
       this.$root.updateBothChapters(meta);
-      scroll(0,0);
+      scroll(0, 0);
 
     },
     getNextChapterLink() {
@@ -175,7 +156,6 @@ export default {
 </script>
 
 <style scoped>
-
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
 
 .verse-container {
