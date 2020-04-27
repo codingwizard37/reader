@@ -4,6 +4,7 @@ import App from './App.vue'
 import router from './router'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons'
 // Do the commented part later for About page
 // import { faFontAwesome } from '@fortawesome/free-brands-svg-icons'
@@ -12,6 +13,7 @@ import './custom.scss'
 import axios from 'axios'
 
 library.add(faChevronRight)
+library.add(faChevronLeft)
 library.add(faExchangeAlt)
 // library.add(faFontAwesome)
 
@@ -122,8 +124,22 @@ new Vue({
     },
     async updateBothLangs() {
       if (this.user.lhsLang != null && this.user.rhsLang != null) {
-        this.setLhsLang(this.user.lhsLang);
+        if (this.user.lhsChapter === null || this.user.lhsChapter.meta.book !== this.$route.params.book || this.user.lhsChapter.meta.ch_num !== this.$route.params.chapter) {
+          this.setLhsLang(this.user.lhsLang);
+        }
         this.setRhsLang(this.user.rhsLang);
+      }
+    },
+    async updateBothChapters(newChapterMeta) {
+      if (this.user.lhsLang != null && this.user.rhsLang != null) {
+        this.user.lhsChapter = await this.getChapterData(
+          this.user.lhsLang.lang_short,
+          newChapterMeta.book_short,
+          newChapterMeta.chapter);
+        this.user.rhsChapter = await this.getChapterData(
+          this.user.rhsLang.lang_short,
+          newChapterMeta.book_short,
+          newChapterMeta.chapter);
       }
     },
     async setLhsLang(newLangData) {
@@ -157,4 +173,4 @@ new Vue({
     this.languages = await this.getAllLanguages();
   },
   render: h => h(App)
-}).$mount('#app')
+}).$mount('#app');
