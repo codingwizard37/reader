@@ -6,6 +6,7 @@
       <b-button variant="secondary-outline" v-if="!(this.lhsChapter.meta.book == '1-ne' && this.lhsChapter.meta.ch_num == 1)" @click="loadPrevChapter()" :to="getPrevChapterLink()">
         <font-awesome-icon :icon="['fas', 'chevron-left']" />
       </b-button>
+      {{ bookName }}
       <b-button variant="secondary-outline" v-if="!(this.lhsChapter.meta.book == 'moro' && this.lhsChapter.meta.ch_num == 10)" @click="loadNextChapter()" :to="getNextChapterLink()">
         <font-awesome-icon :icon="['fas', 'chevron-right']" />
       </b-button>
@@ -39,6 +40,7 @@ export default {
   name: 'Chapter',
   created() {
     this.$root.updateBothLangs();
+
   },
   computed: {
     lhsChapter: function() {
@@ -46,6 +48,9 @@ export default {
     },
     rhsChapter: function() {
       return this.$root.$data.user.rhsChapter;
+    },
+    bookName: function() {
+      return this.$root.$data.books.find((item) => item.short === this.lhsChapter.meta.book).long;
     }
   },
   components: {
