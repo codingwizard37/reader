@@ -52,7 +52,7 @@ export default {
 }
 
 .heading {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #adb5bd;
   font-family: 'Noto Serif', serif;
   padding-top: 0.25rem;
   padding-bottom: 0.5rem;

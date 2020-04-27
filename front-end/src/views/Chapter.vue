@@ -6,7 +6,9 @@
       <b-button variant="secondary-outline" v-if="!(this.lhsChapter.meta.book == '1-ne' && this.lhsChapter.meta.ch_num == 1)" @click="loadPrevChapter()" :to="getPrevChapterLink()">
         <font-awesome-icon :icon="['fas', 'chevron-left']" />
       </b-button>
-      {{ bookName }}
+      <div class="pt-2">
+        {{ bookName }}
+      </div>
       <b-button variant="secondary-outline" v-if="!(this.lhsChapter.meta.book == 'moro' && this.lhsChapter.meta.ch_num == 10)" @click="loadNextChapter()" :to="getNextChapterLink()">
         <font-awesome-icon :icon="['fas', 'chevron-right']" />
       </b-button>
@@ -137,7 +139,6 @@ export default {
     getNextChapter(book, chapter) {
       let index = this.$root.$data.books.findIndex((item) => item.short === book);
       book = this.$root.$data.books[index];
-      console.log(book);
 
       if (chapter !== book.num_ch) {
         return {
@@ -168,7 +169,9 @@ export default {
 }
 
 .verse {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #adb5bd;
+  padding-top: 0.25rem;
+  padding-bottom: 0.5rem;
 }
 
 .nav-buttons {
