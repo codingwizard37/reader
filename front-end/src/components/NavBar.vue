@@ -11,13 +11,16 @@
       <b-nav-item v-bind:active="$route.name === 'Home'" :to="{name: 'Home'}">
         Home
       </b-nav-item>
-      <b-nav-item-dropdown text="Book of Mormon" class="text-white" v-bind:active="$route.name === 'Book' || $route.name === 'Chapter'">
+      <b-nav-item-dropdown text="Book of Mormon" v-bind:active="$route.name === 'Book' || $route.name === 'Chapter'">
         <b-dropdown-item v-for="(value, index) in this.$root.$data.books" v-bind:key="index" v-bind:active="$route.params.book != undefined && $route.params.book == value.short" :to="{name: 'Book', params: {book: value.short}}">
           {{ value.long }}
         </b-dropdown-item>
       </b-nav-item-dropdown>
       <b-nav-item v-bind:active="$route.name === 'About'" :to="{name: 'About'}">
         About
+      </b-nav-item>
+      <b-nav-item v-bind:active="$route.name === 'Contact'" :to="{name: 'Contact'}">
+        Contact
       </b-nav-item>
     </b-navbar-nav>
   </b-collapse>

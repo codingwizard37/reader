@@ -1,10 +1,10 @@
 <template>
   <div class="page mx-auto about">
-    <div class="intro bg-light p-2">
+    <div class="intro bg-light p-2 text-center">
       <h2>About</h2>
     </div>
     <div class="body px-2 mt-1">
-      <p class="text-muted"><i>The Book of Mormon: Parallel Reader</i> is a project by me (Jake Searle), a computer science undergrad from Brigham Young University.</p>
+      <p class="text-muted font-italic"><i>The Book of Mormon: Parallel Reader</i> is a project by me (Jake Searle), a computer science undergrad from Brigham Young University.</p>
 
       <h4>Inspiration:</h4>
       <p>I served a full-time mission in Berlin, Germany and while I was there, I met members and friends alike who spoke all sorts of languages. I myself tried learning Chinese, in addition to German to help these people learn the Gospel, and saw what a difference it made for people to understand something in their native tongue.</p>
@@ -13,7 +13,7 @@
       <h4>Thanks:</h4>
       <ul class="list-unstyled">
         <li>+ To my parents and wife, for being my beta testers</li>
-        <li>+ To Christian Fingerle, who showed me the imporance of one's native language.</li>
+        <li>+ To Christian Fingerle, my mission president, who showed me the imporance of one's native language.</li>
       </ul>
     </div>
   </div>

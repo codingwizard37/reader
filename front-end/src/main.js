@@ -6,8 +6,11 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+
 // Do the commented part later for About page
-// import { faFontAwesome } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import './custom.scss'
 import axios from 'axios'
@@ -15,7 +18,9 @@ import axios from 'axios'
 library.add(faChevronRight)
 library.add(faChevronLeft)
 library.add(faExchangeAlt)
-// library.add(faFontAwesome)
+library.add(faEnvelope)
+library.add(faTwitter)
+library.add(faGithub)
 
 Vue.use(BootstrapVue)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
