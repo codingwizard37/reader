@@ -2,7 +2,7 @@
 <div class="chapter">
   <LangPicker />
   <div v-if="lhsChapter != null && rhsChapter != null">
-    <div class="nav-buttons mb-2 px-1 bg-light">
+    <div class="nav-buttons mb-2 bg-light">
       <b-button variant="secondary-outline" v-if="!(this.lhsChapter.meta.book == '1-ne' && this.lhsChapter.meta.ch_num == 1)" @click="loadPrevChapter()" :to="getPrevChapterLink()">
         <font-awesome-icon :icon="['fas', 'chevron-left']" />
       </b-button>
@@ -20,7 +20,7 @@
         <b-col>{{ rhsChapter.verses[index] }}</b-col>
       </b-row>
     </b-container>
-    <div class="nav-buttons px-1">
+    <div class="nav-buttons">
       <b-button variant="secondary-outline" v-if="!(this.lhsChapter.meta.book == '1-ne' && this.lhsChapter.meta.ch_num == 1)" @click="loadPrevChapter()" :to="getPrevChapterLink()">
         <font-awesome-icon :icon="['fas', 'chevron-left']" />
         {{ getPrevChapterString() }}
@@ -174,7 +174,17 @@ export default {
 }
 
 .nav-buttons {
+  padding-right: 1rem;
+  padding-left: 1rem;
   display: flex;
   justify-content: space-between;
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 992px) {
+  .nav-buttons {
+    padding-right: 30%;
+    padding-left: 30%;
+  }
 }
 </style>

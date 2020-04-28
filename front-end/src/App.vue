@@ -41,4 +41,14 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   padding-bottom: 1.5rem;
 }
+
+/* Tablet Styles */
+@media only screen and (min-width: 768px) {
+  /* nothing */
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 992px) {
+  /* stuff */
+}
 </style>

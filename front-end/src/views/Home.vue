@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <LangPicker />
-    <Read />
+    <Read class="read mx-auto"/>
   </div>
 </template>
 
@@ -23,5 +23,12 @@ export default {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 992px) {
+  .read {
+    width: 60%;
+  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-<div class="book">
+<div class="book mx-auto">
   <div class="ch-list p-4">
     <b-button
         class="ch-button"
@@ -36,5 +36,12 @@ export default {
   width: 3rem;
   margin-right: 1rem;
   margin-bottom: 1rem;
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 992px) {
+  .book {
+    width: 60%;
+  }
 }
 </style>
