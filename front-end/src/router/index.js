@@ -5,6 +5,7 @@ import About from '../views/About.vue'
 import Book from '../views/Book.vue'
 import Chapter from '../views/Chapter.vue'
 import Contact from '../views/Contact.vue'
+import NotFound from '../views/NotFound.vue'
 
 Vue.use(VueRouter)
 
@@ -42,6 +43,11 @@ const routes = [
     path: '/read/:book/:chapter',
     name: 'Chapter',
     component: Chapter,
+  },
+  {
+    path: '*',
+    name: 'NotFound',
+    component: NotFound,
   }
 ]
 

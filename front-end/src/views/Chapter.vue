@@ -113,7 +113,6 @@ export default {
       let meta = this.getNextChapter(this.lhsChapter.meta.book, this.lhsChapter.meta.ch_num);
       this.$root.updateBothChapters(meta);
       scroll(0, 0);
-
     },
     getNextChapterLink() {
       let meta = this.getNextChapter(this.lhsChapter.meta.book, this.lhsChapter.meta.ch_num);
