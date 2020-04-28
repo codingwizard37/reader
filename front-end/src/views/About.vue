@@ -1,6 +1,6 @@
 <template>
   <div class="page mx-auto about">
-    <div class="intro bg-light p-2 text-center">
+    <div class="intro bg-light p-2 text-center text-dark">
       <h2>About</h2>
     </div>
     <div class="body px-2 mt-1">
