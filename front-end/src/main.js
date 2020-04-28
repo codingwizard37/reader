@@ -128,11 +128,17 @@ new Vue({
       }
     },
     async updateBothLangs() {
-      if (this.user.lhsLang != null && this.user.rhsLang != null) {
-        if (this.user.lhsChapter === null || this.user.lhsChapter.meta.book !== this.$route.params.book || this.user.lhsChapter.meta.ch_num !== this.$route.params.chapter) {
+      if (this.user.lhsLang !== null && this.user.rhsLang !== null) {
+        if (this.user.lhsChapter === null ||
+            this.user.lhsChapter.meta.book !== this.$route.params.book ||
+            this.user.lhsChapter.meta.ch_num !== this.$route.params.chapter) {
           this.setLhsLang(this.user.lhsLang);
         }
-        this.setRhsLang(this.user.rhsLang);
+        if (this.user.rhsChapter === null ||
+            this.user.rhsChapter.meta.book !== this.$route.params.book ||
+            this.user.rhsChapter.meta.ch_num !== this.$route.params.chapter) {
+          this.setRhsLang(this.user.rhsLang);
+        }
       }
     },
     async updateBothChapters(newChapterMeta) {
