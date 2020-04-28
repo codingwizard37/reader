@@ -3,7 +3,7 @@
   <div class="intro bg-light p-2 text-center text-dark">
     <h2>Contact me:</h2>
   </div>
-  <div class="body px-2 mt-1">
+  <div class="body px-2 mt-1 mx-auto">
     <p class="text-muted font-italic">Is your language missing? Is there a problem with the site? Wanna tell me your favorite scripture?</p>
     <h4>Socials:</h4>
     <b-list-group
@@ -111,5 +111,12 @@ li {
   box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;
   opacity: 0.85 !important;
   color: #ffffff !important;
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 992px) {
+  .body {
+    width: 60%;
+  }
 }
 </style>

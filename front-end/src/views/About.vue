@@ -3,7 +3,7 @@
     <div class="intro bg-light p-2 text-center text-dark">
       <h2>About</h2>
     </div>
-    <div class="body px-2 mt-1">
+    <div class="body px-2 mt-1 mx-auto">
       <p class="text-muted font-italic"><i>The Book of Mormon: Parallel Reader</i> is a project by me (Jake Searle), a computer science undergrad from Brigham Young University.</p>
 
       <h4>Inspiration:</h4>
@@ -25,5 +25,12 @@
 
 p, li {
   font-family: 'Noto Serif', serif;
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 992px) {
+  .body {
+    width: 60%;
+  }
 }
 </style>
