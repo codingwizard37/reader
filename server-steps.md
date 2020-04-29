@@ -1,7 +1,7 @@
 # Steps to push to server
 
 1. Login to server
-2. Pull changes
+2. Pull changes (`git pull`)
 3. Back-end
   1. `forever stop 1` (ends old process)
   2. `npm install`

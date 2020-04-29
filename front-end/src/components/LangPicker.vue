@@ -39,7 +39,8 @@ export default {
       return this.$root.$data.user.rhsLang;
     },
     languageList: function() {
-      return this.$root.$data.languages;
+      console.log(this.$root.$data.languages.slice().sort((a,b) => (a.lang_long > b.lang_long) ? 1 : ((b.lang_long > a.lang_long) ? -1 : 0)))
+      return this.$root.$data.languages.slice().sort((a,b) => (a.lang_long > b.lang_long) ? 1 : ((b.lang_long > a.lang_long) ? -1 : 0));
     },
   },
   methods: {
