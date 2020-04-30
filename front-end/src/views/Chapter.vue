@@ -16,16 +16,16 @@
     <Header />
     <b-container class="verse-container">
       <b-row v-for="(verse, index) in lhsChapter.verses" v-bind:key="index" class="verse">
-        <b-col>{{ lhsChapter.verses[index] }}</b-col>
-        <b-col>{{ rhsChapter.verses[index] }}</b-col>
+        <b-col v-bind:class="{ rtl: lhsChapter.meta.lang === 'pes'} ">{{ lhsChapter.verses[index] }}</b-col>
+        <b-col v-bind:class="{ rtl: rhsChapter.meta.lang === 'pes'} ">{{ rhsChapter.verses[index] }}</b-col>
       </b-row>
     </b-container>
     <div class="nav-buttons">
-      <b-button variant="secondary-outline" v-if="!(this.lhsChapter.meta.book == '1-ne' && this.lhsChapter.meta.ch_num == 1)" @click="loadPrevChapter()" :to="getPrevChapterLink()">
+      <b-button variant="secondary-outline" v-if="!(lhsChapter.meta.book == '1-ne' && lhsChapter.meta.ch_num == 1)" @click="loadPrevChapter()" :to="getPrevChapterLink()">
         <font-awesome-icon :icon="['fas', 'chevron-left']" />
         {{ getPrevChapterString() }}
       </b-button>
-      <b-button variant="secondary-outline" v-if="!(this.lhsChapter.meta.book == 'moro' && this.lhsChapter.meta.ch_num == 10)" @click="loadNextChapter()" :to="getNextChapterLink()">
+      <b-button variant="secondary-outline" v-if="!(lhsChapter.meta.book == 'moro' && lhsChapter.meta.ch_num == 10)" @click="loadNextChapter()" :to="getNextChapterLink()">
         {{ getNextChapterString() }}
         <font-awesome-icon :icon="['fas', 'chevron-right']" />
       </b-button>
@@ -162,6 +162,11 @@ export default {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
 
 .verse-container {
   font-family: 'Noto Serif', serif;
