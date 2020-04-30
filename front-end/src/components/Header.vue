@@ -6,8 +6,8 @@
         <b-col v-bind:class="{ rtl: rhsChapter.meta.lang === 'pes'} " class="text-center">{{ rhsChapter.header.title }}</b-col>
       </b-row>
       <b-row class="text-center font-italic heading" v-if="lhsChapter.header.subtitle != undefined">
-        <b-col v-bind:class="{ rtl: lhsChapter.meta.lang === 'pes'} ">{{ lhsChapter.header.subtitle }}</b-col>
-        <b-col v-bind:class="{ rtl: rhsChapter.meta.lang === 'pes'} ">{{ rhsChapter.header.subtitle }}</b-col>
+        <b-col v-bind:class="{ rtl: lhsChapter.meta.lang === 'pes'} " class="text-center">{{ lhsChapter.header.subtitle }}</b-col>
+        <b-col v-bind:class="{ rtl: rhsChapter.meta.lang === 'pes'} " class="text-center">{{ rhsChapter.header.subtitle }}</b-col>
       </b-row>
       <b-row class="heading" v-if="lhsChapter.header.intro != undefined">
         <b-col v-bind:class="{ rtl: lhsChapter.meta.lang === 'pes'} ">{{ lhsChapter.header.intro }}</b-col>
